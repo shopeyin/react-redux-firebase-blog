@@ -1,0 +1,48 @@
+.sign-in {
+  min-height: 90vh;
+  position: relative;
+  background-color: lightblue;
+}
+form {
+  margin: 1rem;
+}
+.row-height {
+  min-height: 40rem;
+}
+
+.form_input {
+  font-size: 1.5rem;
+  // padding: 1rem 1.5rem;
+  border-radius: 5px;
+  // border: none;
+  // border-bottom: 3px solid transparent;
+  // width: 100%;
+  // display: block;
+}
+
+.custom-shape-divider-bottom-1598337763 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.custom-shape-divider-bottom-1598337763 svg {
+  position: relative;
+  display: block;
+  width: calc(131% + 1.3px);
+  height: 93px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1598337763 .shape-fill {
+  fill: #f9fafc;
+}
+
+@media (max-width: 600px) {
+  .m {
+    display: none;
+  }
+}

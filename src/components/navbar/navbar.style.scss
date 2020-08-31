@@ -1,0 +1,33 @@
+.nav-container {
+  background-color: green;
+}
+
+.navbar-brand {
+  width: 32%;
+  text-align: center;
+}
+
+.navbar-brand img {
+  width: 80px;
+}
+
+.directory {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+.left-nav {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+}
+
+.left-nav .navbar-brand {
+  margin-right: 20px;
+}
+
+@media (max-width: 990px) {
+  .navbar-brand {
+    text-align: left;
+  }
+}
