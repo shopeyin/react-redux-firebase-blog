@@ -1,5 +1,6 @@
 const initialState = {
-  authError: null,
+  loginError: null,
+  signupError: null,
 };
 
 const authReducer = (state = initialState, action) => {
@@ -8,14 +9,14 @@ const authReducer = (state = initialState, action) => {
       console.log("error login");
       return {
         ...state,
-        authError: "login failed",
+        loginError: action.error.message,
       };
 
     case "LOGIN_SUCCESS":
       console.log("successful");
       return {
         ...state,
-        authError: null,
+        loginError: null,
       };
 
     case "SIGNOUT_SUCCESS":
@@ -26,13 +27,13 @@ const authReducer = (state = initialState, action) => {
       console.log("signup success");
       return {
         ...state,
-        authError: null,
+        signupError: null,
       };
     case "SIGNUP_ERROR":
       console.log("signup ERROR");
       return {
         ...state,
-        authError: action.error.message,
+        signupError: action.error.message,
       };
 
     default:

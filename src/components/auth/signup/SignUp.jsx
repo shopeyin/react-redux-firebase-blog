@@ -35,7 +35,7 @@ class SignUp extends Component {
     this.props.signUp(this.state);
   };
   render() {
-    const { auth, authError } = this.props;
+    const { auth, signupError } = this.props;
     if (auth.uid) return <Redirect to="/" />;
     return (
       <div className="sign-up">
@@ -43,7 +43,9 @@ class SignUp extends Component {
         <div className="row row-height  align-items-center">
           <div className="col-md-12  d-flex justify-content-center ">
             <form onSubmit={this.handleSubmit}>
-              {authError ? authError : null}
+              <div className="text-center" style={{ color: "red" }}>
+                {signupError ? signupError : null}
+              </div>
               <div className="form-row">
                 <div className="form-group col-md-12">
                   <label htmlFor="inputEmail4">Email</label>
@@ -88,7 +90,7 @@ class SignUp extends Component {
                     name="password"
                     type="password"
                     className="form-control form__input"
-                    id="inputPassword4"
+                    id="inputPassword5"
                     placeholder="Password"
                     onChange={this.handleChange}
                   />
@@ -132,7 +134,7 @@ class SignUp extends Component {
 const mapStateToProps = (state) => {
   return {
     auth: state.firebase.auth,
-    authError: state.auth.authError,
+    signupError: state.auth.signupError,
   };
 };
 

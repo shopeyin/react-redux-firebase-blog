@@ -3,7 +3,7 @@ import Createblog from "../../blog/Createblog";
 import EditBlog from "../../blog/EditBlog";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { firestoreConnect, isEmpty, isLoaded } from "react-redux-firebase";
+import { firestoreConnect } from "react-redux-firebase";
 import { Redirect, Link } from "react-router-dom";
 import "./user.style.scss";
 import { deleteBlog } from "../../../redux/blog/blog-actions";
@@ -17,45 +17,67 @@ import { deleteBlog } from "../../../redux/blog/blog-actions";
 // }
 
 function UserProfile(props) {
-  const { auth, profile, blogs, deleteBlog } = props;
+  const { auth, blogs, deleteBlog } = props;
 
   if (!auth.uid) return <Redirect to="/signin" />;
 
-  console.log(blogs);
+  console.log(`blogs here ${blogs}`);
+  console.log(`auth h ${auth}`);
+
   const style = {
     display: "flex",
     justifyContent: "space-between",
   };
 
+  let itemsToRender;
+  if (blogs && blogs.length > 0) {
+    itemsToRender = blogs.map((item) => {
+      return (
+        <div className="card mt-4" key={item.id}>
+          <div style={style}>
+            <h3 className="card-title ml-3 mt-2 text-info">{item.title} </h3>
+            <div style={style}>
+              <span
+                aria-hidden="true"
+                onClick={() => deleteBlog(item.id)}
+                className="mr-3 close mt-2"
+              >
+                &times;
+              </span>
+              <span style={{ marginRight: "5px" }}>
+                <EditBlog item={item} />
+              </span>
+            </div>
+          </div>
+
+          <div className="card-body">{item.content}</div>
+        </div>
+      );
+    });
+  } else if (blogs && blogs.length === 0) {
+    itemsToRender = (
+      <div className="card mt-4">
+        <div style={style}>
+          <h3 className="card-title ml-3 mt-2 text-info">
+            No Blog Created yet....
+          </h3>
+        </div>
+      </div>
+    );
+  } else {
+    itemsToRender = (
+      <div className="card mt-4">
+        <div style={style}>
+          <h3 className="card-title ml-3 mt-2 text-info">Loading....</h3>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="row">
       <div className="col-12 order-2  col-sm-12 order-sm-1  col-md-6 ">
-        {blogs &&
-          blogs.map((item) => {
-            return (
-              <div className="card mt-4" key={item.id}>
-                <div style={style}>
-                  <h3 className="card-title ml-3 mt-2 text-info">
-                    {item.title}{" "}
-                  </h3>
-                  <div style={style}>
-                    <span
-                      aria-hidden="true"
-                      onClick={() => deleteBlog(item.id)}
-                      className="mr-3 close mt-2"
-                    >
-                      &times;
-                    </span>
-                    <span style={{ marginRight: "5px" }}>
-                      <EditBlog item={item} />
-                    </span>
-                  </div>
-                </div>
-
-                <div className="card-body">{item.content}</div>
-              </div>
-            );
-          })}
+        {itemsToRender}
       </div>
       <div className="col-12  order-1  col-sm-12 order-sm-2 col-md-4 offset-md-1 mt-4 ">
         <Createblog />

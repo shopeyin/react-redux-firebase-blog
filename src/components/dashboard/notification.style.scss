@@ -1,7 +1,13 @@
 .list-none {
   list-style: none;
 }
-.pos {
+.notification-container {
   position: sticky;
   top: 1rem;
+}
+
+@media (max-width: 767px) {
+  .notification-container {
+    display: none;
+  }
 }

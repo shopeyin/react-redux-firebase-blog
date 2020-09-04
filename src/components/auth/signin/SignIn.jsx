@@ -25,8 +25,9 @@ class SignIn extends Component {
 
     this.props.signIn(this.state);
   };
+
   render() {
-    const { authError, auth } = this.props;
+    const { loginError, auth } = this.props;
 
     if (auth.uid) return <Redirect to="/" />;
     return (
@@ -34,7 +35,10 @@ class SignIn extends Component {
         <div className="row row-height  align-items-center">
           <div className="col-md-12  d-flex justify-content-center ">
             <form onSubmit={this.handleSubmit}>
-              {authError ? authError : null}
+              <div className="text-center" style={{ color: "red" }}>
+                {loginError ? loginError : null}
+              </div>
+
               <div className="form-group">
                 <label htmlFor="exampleInputEmail1">Email address</label>
                 <input
@@ -88,7 +92,7 @@ class SignIn extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    authError: state.auth.authError,
+    loginError: state.auth.loginError,
     auth: state.firebase.auth,
   };
 };

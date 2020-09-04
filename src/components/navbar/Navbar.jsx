@@ -10,13 +10,19 @@ function Navbar(props) {
 
   const initials = profile ? profile.initials : null;
 
+  const style = {
+    color: "black",
+    cursor: "pointer",
+  };
+
   return (
-    <nav className="mb-1 navbar  navbar-expand-lg navbar-dark default-color nav-container  b">
-      <Link to="/" className="navbar-brand b" href="index.html">
-        <h3>Home</h3>
+    <nav className="mb-1 navbar  navbar-expand-lg navbar-dark default-color nav-container">
+      <Link to="/" className="navbar-brand" href="index.html">
+        <h3>BH</h3>
       </Link>
       <button
-        className="navbar-toggler"
+        style={style}
+        className="navbar-toggler text-dark"
         type="button"
         data-toggle="collapse"
         data-target="#navbarSupportedContent-333"
@@ -27,17 +33,18 @@ function Navbar(props) {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div
-        className="collapse navbar-collapse b"
+        className="collapse navbar-collapse "
         id="navbarSupportedContent-333"
       >
-        <ul className="navbar-nav directory b">
+        <ul className="navbar-nav directory ">
           <li className="nav-item dropdown">
             <a
-              className="nav-link dropdown-toggle"
+              className="nav-link dropdown-toggle dark"
               id="navbarDropdownMenuLink-333"
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
+              style={style}
             >
               About
             </a>
@@ -45,24 +52,24 @@ function Navbar(props) {
               className="dropdown-menu dropdown-default"
               aria-labelledby="navbarDropdownMenuLink-333"
             >
-              <a className="dropdown-item" href="dispatch_comp.html">
+              <Link className="dropdown-item" to="/">
                 Services
-              </a>
-              <a className="dropdown-item" href="rider.html">
+              </Link>
+              <Link className="dropdown-item" to="/">
                 Company
-              </a>
+              </Link>
             </div>
           </li>
 
           <li className="nav-item">
-            <a className="nav-link" href="#">
+            <Link className="nav-link" to="/" style={{ color: "black" }}>
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
 
         {auth.uid ? (
-          <ul className="navbar-nav left-nav b">
+          <ul className="navbar-nav left-nav ">
             <li className="nav-item mr-4">
               <Link to="/profile">
                 <span className="badge badge-warning initials mt-3">
@@ -71,23 +78,34 @@ function Navbar(props) {
               </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" onClick={signOut}>
+              <Link
+                className="nav-link"
+                onClick={signOut}
+                to="/signin"
+                style={{ color: "black" }}
+                id="t"
+              >
                 Logout
-              </a>
+              </Link>
             </li>
           </ul>
         ) : (
-          <ul className="navbar-nav left-nav b">
-            {/* <li className="nav-item mr-4">
-              <span className="badge badge-warning initials"></span>
-            </li> */}
+          <ul className="navbar-nav left-nav ">
             <li className="nav-item">
-              <Link className="nav-link" to="/signin">
+              <Link
+                className="nav-link"
+                to="/signin"
+                style={{ color: "black" }}
+              >
                 Login
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/signup">
+              <Link
+                className="nav-link"
+                to="/signup"
+                style={{ color: "black" }}
+              >
                 Sign up
               </Link>
             </li>

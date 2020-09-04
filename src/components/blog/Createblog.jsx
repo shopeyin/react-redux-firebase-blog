@@ -45,6 +45,12 @@ function Createblog(props) {
   const style = {
     marginLeft: "2rem",
   };
+
+  const sty = {
+    height: "30rem",
+    backgroundPosition: "center",
+    backgroundSize: "cover",
+  };
   return (
     <div className="row">
       <Button variant="primary" style={style} onClick={handleShow}>
@@ -90,10 +96,19 @@ function Createblog(props) {
             <div className="form-group">
               <progress value={props.progress} max="100" />
               <input type="file" onChange={handleImage} />
-
+              {/* <div
+                style={sty}
+                className="bgg"
+                style={{
+                  backgroundImage: `url(${
+                    props.url || "http://via.placeholder.com/400x200"
+                  })`,
+                }}
+              ></div> */}
               <img
-                src={props.url || "http://via.placeholder.com/400x200"}
+                src={props.url || "http://via.placeholder.com/200x200"}
                 width="300"
+                height="200"
               />
             </div>
 

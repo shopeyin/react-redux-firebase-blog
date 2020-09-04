@@ -4,7 +4,7 @@ import "./notification.style.scss";
 function Notifications(props) {
   const { notifications } = props;
   return (
-    <div className="card mt-4 pos">
+    <div className="card mt-4 notification-container">
       <ul className="list-group list-group-flush list-none p-2">
         {notifications &&
           notifications.map((item) => {

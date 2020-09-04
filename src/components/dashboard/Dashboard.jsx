@@ -1,5 +1,5 @@
 import React from "react";
-import "./dashboard.style.scss";
+
 import Notifications from "./Notifications";
 import ListBlog from "../blog/ListBlog";
 import { connect } from "react-redux";
@@ -15,7 +15,7 @@ function Dashboard(props) {
       <div className="col-sm-12 col-md-5">
         <ListBlog blogs={blogs} />
       </div>
-      <div className="col-sm-12 col-md-4 offset-1">
+      <div className="col-sm-12 col-md-4 offset-2">
         <Notifications notifications={notifications} />
       </div>
     </div>

@@ -1,7 +1,8 @@
 .sign-in {
-  min-height: 90vh;
+  min-height: 95vh;
   position: relative;
   background-color: lightblue;
+  border-radius: 2rem;
 }
 form {
   margin: 1rem;
@@ -12,12 +13,7 @@ form {
 
 .form_input {
   font-size: 1.5rem;
-  // padding: 1rem 1.5rem;
   border-radius: 5px;
-  // border: none;
-  // border-bottom: 3px solid transparent;
-  // width: 100%;
-  // display: block;
 }
 
 .custom-shape-divider-bottom-1598337763 {

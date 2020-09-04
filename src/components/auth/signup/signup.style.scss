@@ -2,7 +2,7 @@
   min-height: 95vh;
   position: relative;
   background-color: lightblue;
- 
+  border-radius: 2rem;
 }
 
 .form__input {
@@ -32,8 +32,14 @@
   position: relative;
   display: block;
   width: calc(131% + 1.3px);
-  height: 93px;
+  height: 9.3rem;
   transform: rotateY(180deg);
+
+  @media (max-width: 570px) {
+    .custom-shape-divider-bottom-1598337763 svg {
+      height: 1rem;
+    }
+  }
 }
 
 .custom-shape-divider-bottom-1598337763 .shape-fill {

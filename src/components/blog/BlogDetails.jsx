@@ -4,6 +4,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { Redirect } from "react-router-dom";
 import Moment from "react-moment";
+import "./blogdetail.style.scss";
 
 function BlogDetails(props) {
   const { blog, auth } = props;
@@ -12,7 +13,12 @@ function BlogDetails(props) {
     return (
       <div className="container blog-details">
         <div className="card mb-3">
-          <img src="..." className="card-img-top" alt="..." />
+          <div
+            className="imagee"
+            style={{
+              backgroundImage: `url(${blog.imageUrl})`,
+            }}
+          ></div>
           <div className="card-body">
             <h3 className="card-title">{blog.title} </h3>
             <p className="card-text">{blog.content}</p>

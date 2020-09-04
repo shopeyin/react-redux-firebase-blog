@@ -1,7 +1,29 @@
 .nav-container {
-  background-color: green;
-}
+  background-color: #fff;
+  background-image: linear-gradient(
+      90deg,
+      transparent 79px,
+      #abced4 79px,
+      #abced4 81px,
+      transparent 81px
+    ),
+    linear-gradient(#eee 0.1em, transparent 0.1em);
+  background-size: 100% 1.2em;
+  color: black;
 
+  & h3 {
+    color: black;
+    font-weight: bolder;
+    font-size: 3rem;
+  }
+}
+.navbar-dark .navbar-toggler-icon {
+  color: black !important;
+}
+.navbar-toggler {
+  background-color: black;
+  color: black;
+}
 .navbar-brand {
   width: 32%;
   text-align: center;
@@ -11,11 +33,16 @@
   width: 80px;
 }
 
+#t {
+  cursor: pointer;
+}
+
 .directory {
   width: 40%;
   display: flex;
   justify-content: center;
 }
+
 .left-nav {
   width: 60%;
   display: flex;

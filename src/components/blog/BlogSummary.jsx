@@ -5,23 +5,27 @@ import "./blog.style.scss";
 
 function BlogSummary({ blog }) {
   return (
-    <div className="card mt-4 text-none">
+    <div className="card mt-4 text-none widt">
       <div
         className="image"
         style={{
-          backgroundImage: `url(${photo})`,
+          backgroundImage: `url(${blog.imageUrl})`,
         }}
       ></div>
 
-      <div className="card-body">
-        <h3 className="card-title">{blog.title}</h3>
-        <p className="card-text">{blog.content}</p>
-        <p className="card-text">
+      <div className="card-body border">
+        <h3 className="card-title" style={{ fontWeight: "bold" }}>
+          {blog.title}
+        </h3>
+
+        <h5 className="card-text ">
           {blog.authorFirstName} {blog.authorLastName}
-        </p>
-        <Moment format="Do MMMM YYYY - HH:mm">
-          {blog.createdAt.toDate().toString()}
-        </Moment>
+        </h5>
+        <small>
+          <Moment format="Do MMMM YYYY - HH:mm">
+            {blog.createdAt.toDate().toString()}
+          </Moment>
+        </small>
       </div>
     </div>
   );

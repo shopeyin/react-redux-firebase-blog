@@ -1,14 +1,14 @@
 import React from "react";
 import BlogSummary from "./BlogSummary";
 import { Link } from "react-router-dom";
+import "./listblog.style.scss";
 function ListBlog({ blogs }) {
-  console.log(blogs);
   return (
     <>
       {blogs &&
         blogs.map((blog) => {
           return (
-            <Link to={`/blog/${blog.id}`} key={blog.id}>
+            <Link className="link" to={`/blog/${blog.id}`} key={blog.id}>
               <BlogSummary blog={blog} />
             </Link>
           );
